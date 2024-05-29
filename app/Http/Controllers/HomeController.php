@@ -1,8 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Requests\ProfileRequest;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpKernel\Profiler\Profile;
+// use App\Models\Profile;
+
 
 class HomeController extends Controller
 {
