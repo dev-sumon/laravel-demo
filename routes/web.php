@@ -12,9 +12,6 @@ Route::get('/', function () {
 // Auth::routes();
 Auth::routes();
 
-<<<<<<< Updated upstream
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-=======
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 Route::post('/store', [App\Http\Controllers\HomeController::class, 'store'])->name('store');
 
@@ -31,4 +28,3 @@ Route::controller(ProfileController::class)->prefix('profile')->name('profile.')
     Route::get('index', 'profile')->name('index');
     Route::post('store', 'store')->name('store');
 });
->>>>>>> Stashed changes
