@@ -10,7 +10,7 @@ class ProfileController extends Controller
 {
     public function profile(){
         $data['user'] = User::findOrFail(auth()->user()->id);
-        
+
         // return view('backend.profile',compact('user'));
         return view('backend.profile',$data);
     }
@@ -31,7 +31,7 @@ class ProfileController extends Controller
         $insert->profession = $request->profession;
         $insert->address = $request->address;
         $insert->description = $request->description;
-      
+
 
         $insert->update();
         return redirect()->route('dashboard');

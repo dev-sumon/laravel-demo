@@ -13,7 +13,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
-Route::post('/store', [App\Http\Controllers\HomeController::class, 'store'])->name('store');
+// Route::post('/store', [App\Http\Controllers\HomeController::class, 'store'])->name('store');
 
 
 
