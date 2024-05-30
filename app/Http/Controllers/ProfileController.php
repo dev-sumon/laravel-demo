@@ -18,12 +18,12 @@ class ProfileController extends Controller
     public function store(ProfileRequest $request){
         $insert = User::findOrFail(auth()->user()->id);
 
-        // if ($req->hasFile('image')) {
-        //     $image = $req->file('image');
-        //     $filename = $req->name . time() . '.' . $image->getClientOriginalExtension();
-        //     $path = $image->storeAs("students/", $filename, 'public');
-        //     $insert->image = $path;
-        // }
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $filename = $request->name . time() . '.' . $image->getClientOriginalExtension();
+            $path = $image->storeAs("users/", $filename, 'public');
+            $insert->image = $path;
+        }
 
         $insert->name = $request->name;
         $insert->age = $request->age;

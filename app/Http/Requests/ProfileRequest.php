@@ -22,12 +22,13 @@ class ProfileRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|max:10|string|min:3',
+            'name' => 'required|max:30|string|min:3',
             'age' => 'required|integer',
             'gender'=> 'required|in:0,1,2',
             'profession' => 'required',
             'address'=> 'required',
             'description' => 'nullable|max:1000',
+            'image' => 'nullable|mimes:jpeg,png,jpg,gif',
         ];
     }
 }

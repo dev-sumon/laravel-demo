@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('profession')->nullable();
             $table->text('address')->nullable();
             $table->text('description')->nullable();
-            $table->string('profile_image')->nullable();
+            $table->string('image')->nullable();
         });
     }
 

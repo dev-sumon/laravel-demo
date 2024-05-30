@@ -25,7 +25,7 @@
                             </div>
                         </div>
                     </div>
-                    <form action="{{ route('profile.store') }}" method="POST">
+                    <form action="{{ route('profile.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="card-body">
                             <div class="row">
@@ -78,6 +78,23 @@
                                         <textarea class="form-control" id="description" name="description">{{ $user->description ?? old('description') }}</textarea>
                                     </div>
 
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="image">Profile Image</label> <br>
+                                        <input type="file" class="filepond-image" id="image" name="image"
+                                            accept="image/*">
+                                            @if(isset($user->image))
+                                                <div>
+                                                    <img src="{{ asset('storage/' . $user->image) }}" alt="Profile Image" style="max-width: 100%; height: auto;">
+                                                </div>
+                                            @endif
+                                            @error('image')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                    </div>
                                 </div>
                             </div>
                         </div>
