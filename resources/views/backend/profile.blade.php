@@ -4,8 +4,6 @@
     <section class="profile">
         <div class="row">
             <div class="col-md-12">
-
-
                 @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>
@@ -84,7 +82,7 @@
                                         <label for="image">Profile Image</label> <br>
                                         <input type="file" class="filepond-image" id="image" name="image"
                                             accept="image/*">
-                                            @if(isset($user->image))
+                                            @if(!empty($user->image))
                                                 <div>
                                                     <img src="{{ asset('storage/' . $user->image) }}" alt="Profile Image" style="max-width: 100%; height: auto;">
                                                 </div>

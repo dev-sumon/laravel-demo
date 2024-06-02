@@ -28,7 +28,7 @@ class ProfileRequest extends FormRequest
             'profession' => 'required',
             'address'=> 'required',
             'description' => 'nullable|max:1000',
-            'image' => 'nullable|mimes:jpeg,png,jpg,gif',
+            'image' => 'nullable|mimes:jpeg,png,jpg,gif|max:2048',
         ];
     }
 }
