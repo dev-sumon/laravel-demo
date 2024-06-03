@@ -4,15 +4,7 @@
     <section class="profile">
         <div class="row">
             <div class="col-md-12">
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                 @endif
+
                 <div class="card">
                     <div class="card-header">
                         <div class="d-flex align-items-center justify-content-between">
@@ -28,16 +20,21 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12">
-
                                     <div class="form-group">
                                         <label for="name">{{ __('Name') }}</label>
                                         <input type="text" class="form-control" id="name"
                                             placeholder="Enter your name" name="name" value="{{ $user->name ?? old('name')}}">
+                                            @if($errors->has('name'))
+                                                <div class="text-danger">{{ $errors->first('name') }}</div>
+                                            @endif
                                     </div>
                                     <div class="form-group">
                                         <label for="age">{{ __('Age') }}</label>
                                         <input type="number" class="form-control" id="age"
                                             placeholder="Enter your age" name="age" value="{{ $user->age ?? old('age') }}">
+                                            @if($errors->has('age'))
+                                                <div class="text-danger">{{ $errors->first('age') }}</div>
+                                            @endif
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
@@ -48,6 +45,9 @@
                                                     <option value="2" {{ $user->gender == '2' ? 'selected' : '' }}>{{ __('Female') }}</option>
                                                     <option value="0" {{ $user->gender == '0' ? 'selected' : '' }}>{{ __('Other') }}</option>
                                                 </select>
+                                                @if($errors->has('gender'))
+                                                    <div class="text-danger">{{ $errors->first('gender') }}</div>
+                                                @endif
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -64,16 +64,25 @@
                                                     <option value="engineer" @if($user->profession =='enginner') @endif>{{ __('Engineer') }}</option>
 
                                                 </select>
+                                                @if($errors->has('profession'))
+                                                    <div class="text-danger">{{ $errors->first('profession') }}</div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="address">{{ __('Address') }}</label>
                                         <textarea class="form-control" id="address" name="address">{{ $user->address ?? old('address') }}</textarea>
+                                        @if($errors->has('address'))
+                                            <div class="text-danger">{{ $errors->first('address') }}</div>
+                                        @endif
                                     </div>
                                     <div class="form-group">
                                         <label for="description">{{ __('Description') }}</label>
                                         <textarea class="form-control" id="description" name="description">{{ $user->description ?? old('description') }}</textarea>
+                                        @if($errors->has('description'))
+                                        <div class="text-danger">{{ $errors->first('description') }}</div>
+                                        @endif
                                     </div>
 
                                 </div>
@@ -87,11 +96,9 @@
                                                     <img src="{{ asset('storage/' . $user->image) }}" alt="Profile Image" style="max-width: 100%; height: auto;">
                                                 </div>
                                             @endif
-                                            @error('image')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
-                                            @enderror
+                                            @if($errors->has('image'))
+                                                <div class="text-danger">{{ $errors->first('image') }}</div>
+                                            @endif
                                     </div>
                                 </div>
                             </div>
