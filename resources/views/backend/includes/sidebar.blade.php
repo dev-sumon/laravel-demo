@@ -17,7 +17,6 @@
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>{{ __('Dashboard') }}</span></a>
     </li>
-</ul>
     <li class="nav-item active">
         <a class="nav-link" href="{{ route('profile.index') }}">
             <i class="fas fa-user"></i>
@@ -29,4 +28,4 @@
             <span>{{ __('Gender') }}</span></a>
     </li>
 </ul>
-</ul>
+
