@@ -24,7 +24,7 @@ class ProfileRequest extends FormRequest
         return [
             'name' => 'required|max:20|string|min:3',
             'age' => 'required|integer',
-            'gender'=> 'required',
+            'gender_id'=> 'required|exists:genders,id',
             'profession' => 'required',
             'address'=> 'required',
             'description' => 'nullable|max:1000',

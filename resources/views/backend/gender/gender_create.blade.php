@@ -13,7 +13,9 @@
                     <form action="{{ route('gender.store') }}" method="POST">
                         @csrf
                         <input type="text" name="name" class="form-control mt-3" placeholder="Enter Your Gender">
-
+                        @error('name')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                         <input type="submit" value="Save" class="btn btn-outline-primary w-100 mt-3">
                     </form>
                 </div>

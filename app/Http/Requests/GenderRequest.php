@@ -25,4 +25,11 @@ class GenderRequest extends FormRequest
             'name' => 'required|string',
         ];
     }
+
+    public function messages()
+{
+    return [
+        'name.required' => 'The :attribute field is required.',
+    ];
+}
 }

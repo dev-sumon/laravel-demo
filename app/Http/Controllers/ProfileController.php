@@ -5,19 +5,19 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ProfileRequest;
 use App\Models\User;
 use App\Models\Gender;
-use Illuminate\Http\Request;
+
 
 class ProfileController extends Controller
 {
     public function profile(){
-        $data['genders'] = Gender::all();
+        $data['genders'] = Gender::latest()->get();
         $data['user'] = User::findOrFail(auth()->user()->id);
 
         // return view('backend.profile',compact('user'));
         return view('backend.profile',$data);
     }
 
-    public function store(ProfileRequest $request){
+    public function update(ProfileRequest $request){
         $insert = User::findOrFail(auth()->user()->id);
 
         if ($request->hasFile('image')) {
@@ -29,7 +29,7 @@ class ProfileController extends Controller
 
         $insert->name = $request->name;
         $insert->age = $request->age;
-        $insert->gender = $request->gender;
+        $insert->gender_id = $request->gender_id;
         $insert->profession = $request->profession;
         $insert->address = $request->address;
         $insert->description = $request->description;

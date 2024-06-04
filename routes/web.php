@@ -33,7 +33,7 @@ Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])-
 
 Route::controller(ProfileController::class)->prefix('profile')->name('profile.')->group(function(){
     Route::get('index', 'profile')->name('index');
-    Route::post('store', 'store')->name('store');
+    Route::post('store', 'update')->name('store');
 });
 
 
@@ -42,7 +42,7 @@ Route::controller(GenderController::class)->prefix('gender')->name('gender.')->g
     Route::get('index', 'index')->name('index');
     Route::get('create', 'create')->name('create');
     Route::post('store', 'store')->name('store');
-    Route::get('edit','edit')->name('edit');
+    Route::get('edit/{id}','edit')->name('edit');
     Route::post('update/{id}','update')->name('update');
     Route::get('delete/{id}','delete')->name('delete');
 });

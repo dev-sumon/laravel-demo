@@ -12,9 +12,10 @@
                     <a href="{{ route('gender.index') }}" class="btn btn-info btn-sm float-end">Back</a>
                 </div>
                 <div class="card-body">
-                    <form action="" method="POST">
+                    <form action="{{ route('gender.update', $gender->id) }}" method="POST">
                         @csrf
-                        <input type="text" name="name" value="{{ $gender->name ?? old('name') }}" class="form-control mt-3">
+                        <input type="text" name="name" value="{{ $gender->name }}" class="form-control mt-3">
+                        
                         @if($errors->has('name'))
                             <div class="text-danger">{{ $errors->first('name') }}</div>
                         @endif
