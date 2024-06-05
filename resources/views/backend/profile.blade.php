@@ -53,16 +53,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="profession">{{ __('Profession') }}</label>
-                                                <select name="profession_id" id="profession" class="form-control">
-
-                                                    @foreach ($professions as $profession)
-                                                    <option value="{{ $profession->id }}" {{ $user->profession_id == $profession->id ? 'selected' : '' }}> {{ $profession->name }}</option>
-                                                    @endforeach
-                                                </select>
-                                                @if($errors->has('profession_id'))
-                                                    <div class="text-danger">{{ $errors->first('profession_id') }}</div>
-                                                @endif
-                                                {{-- <select>
+                                                <select name="profession" id="profession" class="form-control">
                                                     <option value="trader" @if ($user->profession == 'trader') selected @endif>{{ __('Trader') }}</option>
                                                     <option value="software_engineer @if($user->profession == 'software_engineer') @endif">{{ __('Software Engineer') }}</option>
                                                     <option value="doctor" @if($user->profession == 'doctor')>{{ __('Doctor') }} @endif</option>
@@ -72,7 +63,7 @@
                                                     <option value="accountant" @if($user->profession == 'accountant') @endif>{{ __('Accountant') }}</option>
                                                     <option value="engineer" @if($user->profession =='enginner') @endif>{{ __('Engineer') }}</option>
 
-                                                </select> --}}
+                                                </select>
                                                 @if($errors->has('profession'))
                                                     <div class="text-danger">{{ $errors->first('profession') }}</div>
                                                 @endif

@@ -25,7 +25,11 @@ class ProfileRequest extends FormRequest
             'name' => 'required|max:20|string|min:3',
             'age' => 'required|integer',
             'gender_id'=> 'required|exists:genders,id',
+
+            'profession' => 'required',
+
             'profession_id' => 'required|exists:professions,id',
+
             'address'=> 'required',
             'description' => 'nullable|max:1000',
             'image' => 'nullable|mimes:jpeg,png,jpg,gif|max:2048',

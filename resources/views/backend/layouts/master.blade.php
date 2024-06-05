@@ -45,7 +45,7 @@
                 <div class="container-fluid">
 
                     @yield('content')
-                    
+
                 </div>
                     {{-- Page Content --}}
             </div>
@@ -63,7 +63,7 @@
     </div>
     {{-- End of Page Wrapper  --}}
     {{-- Logout Modal --}}
-    
+
     @include('backend.includes.logout_modal')
 
     {{-- Bootstrap core JavaScript --}}
