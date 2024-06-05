@@ -1,6 +1,7 @@
 <?php
 
 
+
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\GenderController;
 use Illuminate\Support\Facades\Auth;
@@ -29,6 +30,8 @@ Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])-
 
 // Route::get('/dashboard', function () {
 //     return view('layouts.backend_master');
+
+// });
 // });
 
 Route::controller(ProfileController::class)->prefix('profile')->name('profile.')->group(function(){
@@ -46,4 +49,3 @@ Route::controller(GenderController::class)->prefix('gender')->name('gender.')->g
     Route::post('update/{id}','update')->name('update');
     Route::get('delete/{id}','delete')->name('delete');
 });
-

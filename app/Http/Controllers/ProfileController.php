@@ -7,11 +7,15 @@ use Flasher\Prime\FlasherInterface;
 use App\Models\User;
 use App\Models\Gender;
 
+use App\Models\Profession;
+
 
 class ProfileController extends Controller
 {
     public function profile(){
         $data['genders'] = Gender::latest()->get();
+
+        $data['professions'] = Profession::latest()->get();
         $data['user'] = User::findOrFail(auth()->user()->id);
 
         // return view('backend.profile',compact('user'));
@@ -32,6 +36,7 @@ class ProfileController extends Controller
         $insert->age = $request->age;
         $insert->gender_id = $request->gender_id;
         $insert->profession = $request->profession;
+        $insert->profession_id = $request->profession_id;
         $insert->address = $request->address;
         $insert->description = $request->description;
 

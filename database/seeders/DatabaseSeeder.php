@@ -23,5 +23,10 @@ class DatabaseSeeder extends Seeder
         $this->call([
            GenderSeeder::class,
         ]);
+
+        $this->call([
+           GenderSeeder::class,
+           ProfessionSeeder::class,
+        ]);
     }
 }
