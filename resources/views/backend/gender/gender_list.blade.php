@@ -11,7 +11,12 @@
                     <a href="{{ route('gender.create') }}" class="btn btn-info btn-sm float-end align-items-center px-2 py-2">Add Gender</a>
                 </div>
                 <div class="card-body">
-                    <table class="table table-striped datatable">
+                    @if(session()->has('flash_message'))
+                        <div class="alert alert-{{ session('flash_message.level') }}">
+                            {{ session('flash_message.message') }}
+                        </div>
+                    @endif
+                                    <table class="table table-striped datatable">
                         <thead>
                             <tr>
                                 <th>{{ __('SL') }}</th>

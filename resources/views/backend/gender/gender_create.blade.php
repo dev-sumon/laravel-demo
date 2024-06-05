@@ -10,6 +10,7 @@
                     <a href="{{ route('gender.index') }}" class="btn btn-info btn-sm float-end">Back</a>
                 </div>
                 <div class="card-body">
+                    
                     <form action="{{ route('gender.store') }}" method="POST">
                         @csrf
                         <input type="text" name="name" class="form-control mt-3" placeholder="Enter Your Gender">

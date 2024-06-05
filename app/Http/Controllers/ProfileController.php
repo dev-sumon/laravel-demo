@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileRequest;
+use Flasher\Prime\FlasherInterface;
 use App\Models\User;
 use App\Models\Gender;
 
@@ -17,7 +18,7 @@ class ProfileController extends Controller
         return view('backend.profile',$data);
     }
 
-    public function update(ProfileRequest $request){
+    public function update(ProfileRequest $request,  FlasherInterface $flasher){
         $insert = User::findOrFail(auth()->user()->id);
 
         if ($request->hasFile('image')) {
@@ -36,6 +37,11 @@ class ProfileController extends Controller
 
 
         $insert->update();
+
+        session()->flash('flash_message', [
+            'message' => 'Profile Updated Successfully.',
+            'level' => 'info'
+        ]);
         return redirect()->route('dashboard');
     }
 
