@@ -58,5 +58,5 @@ Route::controller(ProfessionController::class)->prefix('profession')->name('prof
     Route::post('store','store')->name('store');
     Route::get('edit/{id}', 'edit')->name('edit');
     Route::post('update/{id}','update')->name('update');
-    Route::get('delete','delete')->name('delete');
+    Route::get('delete/{id}','delete')->name('delete');
 });

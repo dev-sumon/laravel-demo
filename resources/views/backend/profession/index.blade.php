@@ -36,7 +36,7 @@
                                     <td>
                                         <div class="btn-group" role="group">
                                             <a href="{{ route('profession.edit', $profession->id)}}" class="btn btn-info btn-sm">Edit</a>
-                                            <a href="" class="btn btn-danger btn-sm">Delete</a>
+                                            <a href="{{ route('profession.delete', $profession->id)}}" class="btn btn-danger btn-sm">Delete</a>
                                         </div>
                                     </td>
                                 </tr>
