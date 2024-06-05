@@ -44,4 +44,13 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function gender(){
+        return $this->belongsTo(Gender::class, 'gender_id');
+    }
+
+
+    public function profession(){
+        return $this->belongsTo(Profession::class,'profession_id');
+    }
 }
