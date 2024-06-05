@@ -4,6 +4,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\GenderController;
+use App\Http\Controllers\ProfessionController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -48,4 +49,11 @@ Route::controller(GenderController::class)->prefix('gender')->name('gender.')->g
     Route::get('edit/{id}','edit')->name('edit');
     Route::post('update/{id}','update')->name('update');
     Route::get('delete/{id}','delete')->name('delete');
+});
+
+
+Route::controller(ProfessionController::class)->prefix('profession')->name('profession.')->group(function(){
+    Route::get('index','index')->name('index');
+    Route::get('create','create')->name('create');
+    Route::post('store','store')->name('store');
 });
