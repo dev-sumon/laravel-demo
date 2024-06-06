@@ -13,7 +13,7 @@
 
                     <form action="{{ route('profession.store') }}" method="POST">
                         @csrf
-                        <input type="text" name="name" class="form-control mt-3" placeholder="Enter Your Profession">
+                        <input type="text" name="profession_id" class="form-control mt-3" placeholder="Enter Your Profession">
                         <input type="submit" value="Save" class="btn btn-outline-primary w-100 mt-3">
                     </form>
                 </div>
