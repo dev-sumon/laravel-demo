@@ -40,13 +40,13 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="gender">{{ __('Gender') }}</label>
-                                                <select name="gender" id="gender" class="form-control">
-                                                    <option value="1"  {{ $user->gender == '1' ? 'selected' : '' }}>{{ __('Male') }}</option>
-                                                    <option value="2" {{ $user->gender == '2' ? 'selected' : '' }}>{{ __('Female') }}</option>
-                                                    <option value="0" {{ $user->gender == '0' ? 'selected' : '' }}>{{ __('Other') }}</option>
+                                                <select name="gender_id" id="gender" class="form-control">
+                                                    @foreach ($genders as $gender)
+                                                    <option value="{{ $gender->id }}" {{ $user->gender_id == $gender->id ? 'selected' : '' }}> {{ $gender->name }}</option>
+                                                    @endforeach
                                                 </select>
-                                                @if($errors->has('gender'))
-                                                    <div class="text-danger">{{ $errors->first('gender') }}</div>
+                                                @if($errors->has('gender_id'))
+                                                    <div class="text-danger">{{ $errors->first('gender_id') }}</div>
                                                 @endif
                                             </div>
                                         </div>
