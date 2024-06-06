@@ -8,13 +8,13 @@
         <div class="col-12 my-5">
             <div class="card">
                 <div class="card-header  d-flex justify-content-between align-items-center">
-                    <h1 class="float-start">Edit Gender</h1>
-                    <a href="{{ route('gender.index') }}" class="btn btn-info btn-sm float-end">Back</a>
+                    <h1 class="float-start">Edit Profession</h1>
+                    <a href="{{ route('profession.index') }}" class="btn btn-info btn-sm float-end">Back</a>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('gender.update', $gender->id) }}" method="POST">
+                    <form action="{{ route('profession.update', $profession->id) }}" method="POST">
                         @csrf
-                        <input type="text" name="name" value="{{ $gender->name }}" class="form-control mt-3">
+                        <input type="text" name="name" value="{{ $profession->name }}" class="form-control mt-3">
 
                         @if($errors->has('name'))
                             <div class="text-danger">{{ $errors->first('name') }}</div>

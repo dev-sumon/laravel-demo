@@ -35,8 +35,8 @@
                                     <td>{{ ($profession->created_at == $profession->updated_at) ? "N/A" : date('d-m-Y H:i A', strtotime($profession->updated_at)) }}</td>
                                     <td>
                                         <div class="btn-group" role="group">
-                                            <a href="" class="btn btn-info btn-sm">Edit</a>
-                                            <a href="" class="btn btn-danger btn-sm">Delete</a>
+                                            <a href="{{ route('profession.edit', $profession->id)}}" class="btn btn-info btn-sm">Edit</a>
+                                            <a href="{{ route('profession.delete', $profession->id)}}" class="btn btn-danger btn-sm">Delete</a>
                                         </div>
                                     </td>
                                 </tr>

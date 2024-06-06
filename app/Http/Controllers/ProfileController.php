@@ -18,7 +18,6 @@ class ProfileController extends Controller
         $data['professions'] = Profession::latest()->get();
         $data['user'] = User::findOrFail(auth()->user()->id);
 
-        // return view('backend.profile',compact('user'));
         return view('backend.profile',$data);
     }
 
