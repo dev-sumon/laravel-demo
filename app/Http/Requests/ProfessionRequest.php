@@ -11,7 +11,7 @@ class ProfessionRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,8 +21,23 @@ class ProfessionRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            'name' => 'required|string',
+
+        $rules = [
+
+
         ];
+
+        if($this->route('id')){
+                $rules+=[
+                    'name' => 'required|unique:professions,name,' . $this->route('id'),
+
+                ];
+        }else{
+                $rules+=[
+                    'name' => 'required|unique:professions,name',
+                ];
+
+        }
+        return $rules;
     }
 }

@@ -26,14 +26,13 @@
     </li>
     <li class="nav-item active">
         <a class="nav-link" href="{{ route('gender.index') }}">
-            <i class="fas fa-user"></i>
+            <i class="fas fa-people-arrows"></i>
             <span>{{ __('Gender') }}</span></a>
     </li>
 
     <li class="nav-item active">
         <a class="nav-link" href="{{ route('profession.index') }}">
-            <i class="fa-solid fa-user-tie"></i>
+            <i class="fas fa-user-graduate"></i>
             <span>{{ __('Profession') }}</span></a>
     </li>
 </ul>
-

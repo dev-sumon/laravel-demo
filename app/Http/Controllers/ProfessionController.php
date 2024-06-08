@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProfessionRequest;
 use App\Models\Profession;
 use Illuminate\Http\Request;
 use Flasher\Prime\FlasherInterface;
@@ -17,17 +18,14 @@ class ProfessionController extends Controller
         return view('backend.profession.create');
     }
 
-    public function store(Request $request){
-        $request->validate([
-            'name' => 'required|string',
-        ]);
+    public function store(ProfessionRequest $request){
 
         $insert = new Profession();
         $insert->name = $request->name;
         $insert->save();
 
         session()->flash('flash_message', [
-            'message' => 'Profession Create Successfully.',
+            'message' => 'Profession Created Successfully.',
             'level' => 'success'
         ]);
         return redirect()->route('profession.index');
@@ -37,11 +35,8 @@ class ProfessionController extends Controller
         return view('backend.profession.edit',$data);
     }
 
-    public function update(Request $request, $id, FlasherInterface $flasher){
+    public function update(ProfessionRequest $request, $id){
 
-        $request->validate([
-            'name'=> 'required|string',
-        ]);
 
         $profession = Profession::findOrFail($id);
 
@@ -56,7 +51,7 @@ class ProfessionController extends Controller
         return redirect()->route('profession.index');
     }
 
-    public function delete(Profession $profession, $ids, FlasherInterface $flasher){
+    public function delete(Profession $profession, $ids){
         if (!is_array($ids)) {
             $ids = [$ids];
         }
