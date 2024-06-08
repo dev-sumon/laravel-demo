@@ -34,7 +34,6 @@ class ProfileController extends Controller
         $insert->name = $request->name;
         $insert->age = $request->age;
         $insert->gender_id = $request->gender_id;
-        $insert->profession = $request->profession;
         $insert->profession_id = $request->profession_id;
         $insert->address = $request->address;
         $insert->description = $request->description;
