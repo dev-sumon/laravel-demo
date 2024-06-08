@@ -5,6 +5,8 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\GenderController;
 use App\Http\Controllers\ProfessionController;
+use App\Http\Controllers\UserController;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -57,6 +59,16 @@ Route::controller(ProfessionController::class)->prefix('profession')->name('prof
     Route::get('create','create')->name('create');
     Route::post('store','store')->name('store');
     Route::get('edit/{id}', 'edit')->name('edit');
+    Route::post('update/{id}','update')->name('update');
+    Route::get('delete/{id}','delete')->name('delete');
+});
+
+
+Route::controller(UserController::class)->prefix('user')->name('user.')->group(function(){
+    Route::get('index', 'index')->name('index');
+    Route::get('create','create')->name('create');
+    Route::post('store','store')->name('store');
+    Route::get('edit/{id}','edit')->name('edit');
     Route::post('update/{id}','update')->name('update');
     Route::get('delete/{id}','delete')->name('delete');
 });

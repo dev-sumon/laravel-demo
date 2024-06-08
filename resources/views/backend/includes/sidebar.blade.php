@@ -35,4 +35,9 @@
             <i class="fas fa-user-graduate"></i>
             <span>{{ __('Profession') }}</span></a>
     </li>
+    <li class="nav-item active">
+        <a class="nav-link" href="{{ route('user.index') }}">
+            <i class="fas fa-users"></i>
+            <span>{{ __('Users') }}</span></a>
+    </li>
 </ul>
