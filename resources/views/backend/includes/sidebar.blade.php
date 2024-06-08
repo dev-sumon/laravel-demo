@@ -20,6 +20,13 @@
 
 
     <li class="nav-item active">
+        <a class="nav-link" href="{{ route('user.index') }}">
+            <i class="fas fa-users"></i>
+            <span>{{ __('Users') }}</span></a>
+    </li>
+
+    
+    <li class="nav-item active">
         <a class="nav-link" href="{{ route('profile.index') }}">
             <i class="fas fa-user"></i>
             <span>{{ __('Profile') }}</span></a>
