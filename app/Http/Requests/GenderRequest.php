@@ -11,7 +11,7 @@ class GenderRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,15 +21,26 @@ class GenderRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            'name' => 'required|string',
+
+        $rules = [
+
+
         ];
+
+        if($this->route('id')){
+                $rules+=[
+                    'name' => 'required|unique:genders,name,' . $this->route('id'),
+
+                ];
+        }else{
+                $rules+=[
+                    'name' => 'required|unique:genders,name',
+                ];
+
+        }
+        return $rules;
     }
 
-    public function messages()
-{
-    return [
-        'name.required' => 'The :attribute field is required.',
-    ];
-}
+
+
 }

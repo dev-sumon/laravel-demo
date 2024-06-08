@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\GenderRequest;
 use Flasher\Prime\FlasherInterface;
 use App\Models\Gender;
 
@@ -19,18 +20,14 @@ class GenderController extends Controller
     {
         return view('backend.gender.gender_create');
     }
-    public function store(Request $request, FlasherInterface $flasher){
-
-        $request->validate([
-            'name'=> 'required|string',
-        ]);
+    public function store(GenderRequest $request){
 
         $insert = new Gender;
 
         $insert->name = $request->name;
         $insert->save();
         session()->flash('flash_message', [
-            'message' => 'Gender Create Successfully.',
+            'message' => 'Gender Created Successfully.',
             'level' => 'success'
         ]);
         return redirect()->route('gender.index');
@@ -43,11 +40,7 @@ class GenderController extends Controller
 
 
 
-    public function update(Request $request, $id, FlasherInterface $flasher){
-
-        $request->validate([
-            'name'=> 'required|string',
-        ]);
+    public function update(GenderRequest $request, $id){
 
         $gender = Gender::findOrFail($id);
 
@@ -65,7 +58,7 @@ class GenderController extends Controller
 
 
 
-    public function delete(Gender $gender, $ids, FlasherInterface $flasher){
+    public function delete(Gender $gender, $ids){
         if (!is_array($ids)) {
             $ids = [$ids];
         }
