@@ -23,11 +23,11 @@
                         @if($errors->has('email'))
                         <div class="text-danger">{{ $errors->first('email') }}</div>
                         @endif
-                        <input type="password" name="password" value="{{ $user->password }}" class="form-control mt-3" placeholder="Enter Your password">
+                        <input type="password" name="password" value="" class="form-control mt-3" placeholder="Enter Your password">
                         @if($errors->has('password'))
                         <div class="text-danger">{{ $errors->first('password') }}</div>
                         @endif
-                        <input type="password" name="password_confirmation" value="{{ $user->password_confirmation }}" class="form-control mt-3" placeholder="Enter Your Confirmation Password">
+                        <input type="password" name="password_confirmation" value="" class="form-control mt-3" placeholder="Enter Your Confirmation Password">
                         @if($errors->has('password_confirmation'))
                         <div class="text-danger">{{ $errors->first('password_confirmation') }}</div>
                         @endif
