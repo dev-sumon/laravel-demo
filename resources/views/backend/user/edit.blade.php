@@ -14,7 +14,7 @@
                 <div class="card-body">
                     <form action="{{ route('user.update', $user->id) }}" method="POST">
                         @csrf
-                        <input type="text" name="name" value="{{ $user->name }}" class="form-control mt-3">
+                        <input type="text" name="name" value="{{ $user->name }}" class="form-control mt-3" placeholder="Enter Your Name">
 
                         @if($errors->has('name'))
                             <div class="text-danger">{{ $errors->first('name') }}</div>
@@ -27,7 +27,7 @@
                         @if($errors->has('password'))
                         <div class="text-danger">{{ $errors->first('password') }}</div>
                         @endif
-                        <input type="password" name="password_confirmation" value="" class="form-control mt-3" placeholder="Enter Your Confirmation Password">
+                        <input type="password" name="password_confirmation" value="" class="form-control mt-3" placeholder="Enter Your Password Again">
                         @if($errors->has('password_confirmation'))
                         <div class="text-danger">{{ $errors->first('password_confirmation') }}</div>
                         @endif
