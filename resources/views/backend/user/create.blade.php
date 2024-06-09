@@ -13,7 +13,7 @@
 
                     <form action="{{ route('user.store') }}" method="POST">
                         @csrf
-                        <input type="text" name="name" value="{{old('name')}}" class="form-control mt-3" placeholder="Enter Your Profession">
+                        <input type="text" name="name" value="{{old('name')}}" class="form-control mt-3" placeholder="Enter Your Name">
                         @if($errors->has('name'))
                         <div class="text-danger">{{ $errors->first('name') }}</div>
                         @endif
@@ -21,11 +21,11 @@
                         @if($errors->has('email'))
                         <div class="text-danger">{{ $errors->first('email') }}</div>
                         @endif
-                        <input type="password" name="password" value="{{old('password')}}" class="form-control mt-3" placeholder="Enter Your Profession">
+                        <input type="password" name="password" value="{{old('password')}}" class="form-control mt-3" placeholder="Enter Your Password">
                         @if($errors->has('password'))
                         <div class="text-danger">{{ $errors->first('password') }}</div>
                         @endif
-                        <input type="password" name="password_confirmation" value="{{old('password_confirmation')}}" class="form-control mt-3" placeholder="Enter Your Profession">
+                        <input type="password" name="password_confirmation" value="{{old('password_confirmation')}}" class="form-control mt-3" placeholder="Enter Your Password Again">
                         @if($errors->has('password_confirmation'))
                         <div class="text-danger">{{ $errors->first('password_confirmation') }}</div>
                         @endif
