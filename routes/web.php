@@ -5,6 +5,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\GenderController;
 use App\Http\Controllers\ProfessionController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -68,6 +69,18 @@ Route::controller(UserController::class)->prefix('user')->name('user.')->group(f
     Route::get('index', 'index')->name('index');
     Route::get('create','create')->name('create');
     Route::post('store','store')->name('store');
+    Route::get('edit/{id}','edit')->name('edit');
+    Route::post('update/{id}','update')->name('update');
+    Route::get('delete/{id}','delete')->name('delete');
+});
+
+// Route::controller(RoleController::class)->prefix('role')->name('role.')->gropu(function(){
+//     Route::get('index', 'index')->name('index');
+// });
+Route::controller(RoleController::class)->prefix('role')->name('role.')->group(function(){
+    Route::get('index', 'index')->name('index');
+    Route::get('create', 'create')->name('create');
+    Route::post('store', 'store')->name('store');
     Route::get('edit/{id}','edit')->name('edit');
     Route::post('update/{id}','update')->name('update');
     Route::get('delete/{id}','delete')->name('delete');
