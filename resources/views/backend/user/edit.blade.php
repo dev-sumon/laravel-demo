@@ -14,20 +14,23 @@
                 <div class="card-body">
                     <form action="{{ route('user.update', $user->id) }}" method="POST">
                         @csrf
-                        <input type="text" name="name" value="{{ $user->name }}" class="form-control mt-3" placeholder="Enter Your Name">
-
+                        <label class="mt-3" for="name">{{ __('Name') }}</label>
+                        <input type="text" name="name" value="{{ $user->name }}" class="form-control" placeholder="Enter Your Name">
                         @if($errors->has('name'))
                             <div class="text-danger">{{ $errors->first('name') }}</div>
                         @endif
-                        <input type="email" name="email" value="{{ $user->email }}" class="form-control mt-3" placeholder="Enter Your Email">
+                        <label  class="mt-3" for="email">{{ __('Email') }}</label>
+                        <input type="email" name="email" value="{{ $user->email }}" class="form-control" placeholder="Enter Your Email">
                         @if($errors->has('email'))
                         <div class="text-danger">{{ $errors->first('email') }}</div>
                         @endif
-                        <input type="password" name="password" value="" class="form-control mt-3" placeholder="Enter Your password">
+                        <label class="mt-3" for="password">{{ __('Password') }}</label>
+                        <input type="password" name="password" value="" class="form-control" placeholder="Enter Your password">
                         @if($errors->has('password'))
                         <div class="text-danger">{{ $errors->first('password') }}</div>
                         @endif
-                        <input type="password" name="password_confirmation" value="" class="form-control mt-3" placeholder="Enter Your Password Again">
+                        <label class="mt-3"  for="password_confirmation">{{ __('Confirm Password') }}</label>
+                        <input type="password" name="password_confirmation" value="" class="form-control" placeholder="Enter Your Password Again">
                         @if($errors->has('password_confirmation'))
                         <div class="text-danger">{{ $errors->first('password_confirmation') }}</div>
                         @endif
