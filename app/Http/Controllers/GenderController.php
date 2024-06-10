@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\GenderRequest;
-use Flasher\Prime\FlasherInterface;
 use App\Models\Gender;
 
 
