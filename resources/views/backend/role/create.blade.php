@@ -6,8 +6,8 @@
         <div class="col-12 my-5">
             <div class="card">
                 <div class="card-header  d-flex justify-content-between align-items-center">
-                    <h1 class="float-start">Role User</h1>
-                    <a href="" class="btn btn-info btn-sm float-end">Back</a>
+                    <h1 class="float-start">Add Role</h1>
+                    <a href="{{ route('role.index') }}" class="btn btn-info btn-sm float-end">Back</a>
                 </div>
                 <div class="card-body">
 
