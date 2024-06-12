@@ -20,7 +20,15 @@
                             <div class="text-danger">{{ $errors->first('name') }}</div>
                         @endif
 
-                        <input type="submit" value="Update" class="btn btn-outline-primary w-100 mt-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="1" {{ $role->status== 1 ? 'checked' : ''}} name="status" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                              Status</label>
+                          </div>
+
+                        <div class="submit-button text-end ms-auto">
+                            <button class="btn btn-primary" type="submit">Update</button>
+                        </div>
                     </form>
                 </div>
             </div>

@@ -32,7 +32,7 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $role->name }}</td>
-                                    <td></td>
+                                    <td>{{ $role->status==1 ? 'Active' : 'Deactive'}}</td>
                                     <td>{{ date('d-m-Y H:i A', strtotime($role->created_at)) }}</td>
                                     <td>{{ ($role->created_at == $role->updated_at) ? "N/A" : date('d-m-Y H:i A', strtotime($role->updated_at)) }}</td>
                                     <td>

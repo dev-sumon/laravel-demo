@@ -21,6 +21,7 @@ class RoleController extends Controller
         $insert = new Role;
 
         $insert->name = $request->name;
+        $insert->status = $request->status ?? 0;
         $insert->save();
         session()->flash('flash_message', [
             'message' => 'Role Created Successfully.',
@@ -37,6 +38,7 @@ class RoleController extends Controller
         $role = Role::findOrFail($id);
 
         $role->name = $request->name;
+        $role->status = $request->status ?? 0;
         $role->update();
 
 

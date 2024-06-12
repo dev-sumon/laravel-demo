@@ -18,7 +18,15 @@
                         @if($errors->has('name'))
                         <div class="text-danger">{{ $errors->first('name') }}</div>
                         @endif
-                        <input type="submit" value="Create" class="btn btn-outline-primary w-100 mt-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="1" name="status" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                              Status</label>
+                          </div>
+
+                        <div class="submit-button text-end ms-auto">
+                            <button class="btn btn-primary" type="submit">Create</button>
+                        </div>
                     </form>
                 </div>
             </div>
