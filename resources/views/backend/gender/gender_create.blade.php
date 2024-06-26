@@ -19,7 +19,9 @@
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
 
-                        <input type="submit" value="Save" class="btn btn-outline-primary w-100 mt-3">
+                        <div class="submit-button text-right ms-auto my-3">
+                            <button class="btn btn-primary" type="submit">Create</button>
+                        </div>
                     </form>
                 </div>
             </div>
