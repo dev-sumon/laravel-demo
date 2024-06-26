@@ -26,7 +26,7 @@
                               Status</label>
                           </div>
 
-                        <div class="submit-button text-end ms-auto">
+                        <div class="submit-button text-right ms-auto">
                             <button class="btn btn-primary" type="submit">Update</button>
                         </div>
                     </form>

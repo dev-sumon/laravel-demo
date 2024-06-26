@@ -44,7 +44,7 @@
     </li>
     <li class="nav-item active">
         <a class="nav-link" href="{{ route('role.index') }}">
-            <i class="fas fa-user-graduate"></i>
+            <i class="fas fa-minus"></i>
             <span>{{ __('Role') }}</span></a>
     </li>
 </ul>
