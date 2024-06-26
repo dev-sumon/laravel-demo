@@ -14,17 +14,17 @@
                     <form action="{{ route('role.store') }}" method="POST">
                         @csrf
                         <label class="mt-3" for="name">{{ __('Name') }}</label>
-                        <input type="text" name="name" value="{{old('name')}}" class="form-control" placeholder="Enter Your Name">
+                        <input type="text" name="name" value="{{old('name')}}" class="form-control" placeholder="Enter Your Role Name">
                         @if($errors->has('name'))
                         <div class="text-danger">{{ $errors->first('name') }}</div>
                         @endif
-                        <div class="form-check">
+                        <div class="form-check my-2">
                             <input class="form-check-input" type="checkbox" value="1" name="status" id="flexCheckDefault">
                             <label class="form-check-label" for="flexCheckDefault">
                               Status</label>
                           </div>
 
-                        <div class="submit-button text-end ms-auto">
+                        <div class="submit-button text-right ms-auto">
                             <button class="btn btn-primary" type="submit">Create</button>
                         </div>
                     </form>
