@@ -15,12 +15,12 @@
                     <form action="{{ route('profession.update', $profession->id) }}" method="POST">
                         @csrf
                         <input type="text" name="name" value="{{ $profession->name }}" class="form-control mt-3">
-
                         @if($errors->has('name'))
                             <div class="text-danger">{{ $errors->first('name') }}</div>
                         @endif
-
-                        <input type="submit" value="Update" class="btn btn-outline-primary w-100 mt-3">
+                        <div class="submit-button text-right ms-auto my-3">
+                            <button class="btn btn-primary" type="submit">Update</button>
+                        </div>
                     </form>
                 </div>
             </div>
