@@ -47,4 +47,9 @@
             <i class="fas fa-minus"></i>
             <span>{{ __('Role') }}</span></a>
     </li>
+    <li class="nav-item active">
+        <a class="nav-link" href="{{ route('permission.index') }}">
+            <i class="fas fa-user-lock"></i>
+            <span>{{ __('Permission') }}</span></a>
+    </li>
 </ul>
