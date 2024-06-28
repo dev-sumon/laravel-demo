@@ -7,6 +7,7 @@ use App\Http\Controllers\GenderController;
 use App\Http\Controllers\ProfessionController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PermissionController;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -94,4 +95,13 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('update/{id}','update')->name('update');
         Route::get('delete/{id}','delete')->name('delete');
     });
+    Route::controller(PermissionController::class)->prefix('permission')->name('permission.')->group(function(){
+        Route::get('index', 'index')->name('index');
+        Route::get('create', 'create')->name('create');
+        Route::post('store', 'store')->name('store');
+        Route::get('edit/{id}','edit')->name('edit');
+        Route::post('update/{id}','update')->name('update');
+        Route::get('delete/{id}','delete')->name('delete');
+    });
+
 });
