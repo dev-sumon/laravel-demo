@@ -24,6 +24,7 @@ class UserRequest extends FormRequest
     $rules = [
         'name' => 'required|max:20|string|min:3',
         'email' => 'required|email|unique:users,email,' . $this->route('id'),
+        'role' => 'required|exists:roles,id',
     ];
 
     if ($this->route('id')) {

@@ -10,6 +10,14 @@ use App\Models\Gender;
 class GenderController extends Controller
 {
 
+    function __construct()
+    {
+         $this->middleware('permission:gender-list', ['only' => ['index']]);
+         $this->middleware('permission:gender-create', ['only' => ['create','store']]);
+         $this->middleware('permission:gender-edit', ['only' => ['edit','update']]);
+         $this->middleware('permission:gender-delete', ['only' => ['delete']]);
+    }
+
     public function index(){
         $data['genders'] = Gender::all();
         return view('backend.gender.gender_list',$data);

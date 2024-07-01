@@ -24,6 +24,18 @@
                         @if($errors->has('email'))
                         <div class="text-danger">{{ $errors->first('email') }}</div>
                         @endif
+                        <div class="form-group">
+                            <label  class="mt-3" for="role">{{ __('Role') }}</label>
+                            <select name="role" id="role" class="form-control">
+                                {{-- <option value=" " selected hidden>{{ __('Select Role') }}</option> --}}
+                                @foreach ($roles as $role )
+                                    <option value="{{ $role->id }}" {{ $role->id==old('role', $user->role_id) ? 'selected': '' }}>{{ $role->name}}</option>
+                                @endforeach
+                            </select>
+                            @if($errors->has('role'))
+                            <div class="text-danger">{{ $errors->first('role') }}</div>
+                            @endif
+                        </div>
                         <label class="mt-3" for="password">{{ __('Password') }}</label>
                         <input type="password" name="password" value="" class="form-control" placeholder="Enter Your password">
                         @if($errors->has('password'))

@@ -25,6 +25,20 @@
                             <label class="form-check-label" for="flexCheckDefault">
                               Status</label>
                           </div>
+                          <div class="permissions row">
+                            @foreach ($permission_groups as $prefix=> $permissions)
+                                <div class="col-3">
+                                    <h4>{{ $prefix }}</h4>
+                                    @foreach ($permissions as $key=> $permission)
+                                        <div class="form-check my-2">
+                                            <input class="form-check-input" type="checkbox" value="{{ $permission->name }}" {{( $role->hasPermissionTo($permission->name) ? 'checked':'') }} name="permissions[]" id="flexCheckDefault-{{ $permission->id }}">
+                                            <label class="form-check-label" for="flexCheckDefault-{{ $permission->id }}">
+                                                {{ $permission->name }}</label>
+                                        </div>
+                                    @endforeach
+                                    </div>
+                            @endforeach
+                          </div>
 
                         <div class="submit-button text-right ms-auto">
                             <button class="btn btn-primary" type="submit">Update</button>

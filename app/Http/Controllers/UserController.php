@@ -3,19 +3,29 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRequest;
-use Illuminate\Http\Request;
 use App\Models\User;
+use Spatie\Permission\Models\Role;
 
 
 class UserController extends Controller
 {
+
+    function __construct()
+    {
+         $this->middleware('permission:user-list', ['only' => ['index']]);
+         $this->middleware('permission:user-create', ['only' => ['create','store']]);
+         $this->middleware('permission:user-edit', ['only' => ['edit','update']]);
+         $this->middleware('permission:user-delete', ['only' => ['delete']]);
+    }
     public function index(){
         $data['users'] = User::all();
         return view('backend.user.index', $data);
     }
 
     public function create(){
-        return view('backend.user.create');
+
+        $data['roles'] = Role::latest()->get();
+        return view('backend.user.create', $data);
     }
 
 
@@ -24,8 +34,11 @@ class UserController extends Controller
 
         $insert->name = $request->name;
         $insert->email = $request->email;
+        $insert->role_id = $request->role;
         $insert->password = $request->password;
         $insert->save();
+
+        $insert->assignRole($insert->role->name);
 
 
         session()->flash('flash_message', [
@@ -39,6 +52,7 @@ class UserController extends Controller
 
     public function edit($id){
         $data['user'] = User::findOrFail($id);
+        $data['roles'] = Role::latest()->get();
         return view('backend.user.edit', $data);
     }
 
@@ -48,12 +62,15 @@ class UserController extends Controller
 
         $user->name = $request->name;
         $user->email = $request->email;
+        $user->role_id = $request->role;
         if($request->password){
             $user->password = $request->password;
         }
 
 
         $user->update();
+
+        $user->syncRoles($user->role->name);
 
 
         session()->flash('flash_message', [

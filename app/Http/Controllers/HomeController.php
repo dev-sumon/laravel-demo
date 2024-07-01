@@ -27,6 +27,9 @@ class HomeController extends Controller
      */
     public function index()
     {
+        // $user = User::findOrFail(auth()->user()->id);
+        // $user->givePermissionTo('dashboard_view');
+
         return view('backend.dashboard.dashboard');
     }
 }

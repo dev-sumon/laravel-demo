@@ -9,6 +9,16 @@ use Flasher\Prime\FlasherInterface;
 
 class ProfessionController extends Controller
 {
+
+    function __construct()
+    {
+         $this->middleware('permission:profession-list', ['only' => ['index']]);
+         $this->middleware('permission:profession-create', ['only' => ['create','store']]);
+         $this->middleware('permission:profession-edit', ['only' => ['edit','update']]);
+         $this->middleware('permission:profession-delete', ['only' => ['delete']]);
+    }
+
+
     public function index(){
         $data['professions'] = Profession::all();
         return view('backend.profession.index', $data);

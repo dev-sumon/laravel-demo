@@ -13,27 +13,49 @@
 
                     <form action="{{ route('user.store') }}" method="POST">
                         @csrf
-                        <label class="mt-3" for="name">{{ __('Name') }}</label>
-                        <input type="text" name="name" value="{{old('name')}}" class="form-control" placeholder="Enter Your Name">
-                        @if($errors->has('name'))
-                        <div class="text-danger">{{ $errors->first('name') }}</div>
-                        @endif
-                        <label  class="mt-3" for="email">{{ __('Email') }}</label>
-                        <input type="email" name="email" value="{{old('email')}}" class="form-control" placeholder="Enter Your Email">
-                        @if($errors->has('email'))
-                        <div class="text-danger">{{ $errors->first('email') }}</div>
-                        @endif
-                        <label class="mt-3" for="password">{{ __('Password') }}</label>
-                        <input type="password" name="password" value="{{old('password')}}" class="form-control" placeholder="Enter Your Password">
-                        @if($errors->has('password'))
-                        <div class="text-danger">{{ $errors->first('password') }}</div>
-                        @endif
-                        <label class="mt-3"  for="password_confirmation">{{ __('Confirm Password') }}</label>
-                        <input type="password" name="password_confirmation" value="{{old('password_confirmation')}}" class="form-control" placeholder="Enter Your Password Again">
-                        @if($errors->has('password_confirmation'))
-                        <div class="text-danger">{{ $errors->first('password_confirmation') }}</div>
-                        @endif
-                        <input type="submit" value="Create" class="btn btn-outline-primary w-100 mt-3">
+                        <div class="form-group">
+                            <label class="mt-3" for="name">{{ __('Name') }}</label>
+                            <input type="text" name="name" value="{{old('name')}}" class="form-control" placeholder="Enter Your Name">
+                            @if($errors->has('name'))
+                            <div class="text-danger">{{ $errors->first('name') }}</div>
+                            @endif
+                        </div>
+                        <div class="form-group">
+                            <label  class="mt-3" for="email">{{ __('Email') }}</label>
+                            <input type="email" name="email" value="{{old('email')}}" class="form-control" placeholder="Enter Your Email">
+                            @if($errors->has('email'))
+                            <div class="text-danger">{{ $errors->first('email') }}</div>
+                            @endif
+                        </div>
+                        <div class="form-group">
+                            <label  class="mt-3" for="role">{{ __('Role') }}</label>
+                            <select name="role" id="role" class="form-control">
+                                <option value=" " selected hidden>{{ __('Select Role') }}</option>
+                                @foreach ($roles as $role )
+                                    <option value="{{ $role->id }}" {{ $role->id==old('role') ? 'selected': '' }}>{{ $role->name}}</option>
+                                @endforeach
+                            </select>
+                            @if($errors->has('role'))
+                            <div class="text-danger">{{ $errors->first('role') }}</div>
+                            @endif
+                        </div>
+                        <div class="form-group">
+                            <label class="mt-3" for="password">{{ __('Password') }}</label>
+                            <input type="password" name="password" value="{{old('password')}}" class="form-control" placeholder="Enter Your Password">
+                            @if($errors->has('password'))
+                            <div class="text-danger">{{ $errors->first('password') }}</div>
+                            @endif
+                        </div>
+                        <div class="form-group">
+                            <label class="mt-3"  for="password_confirmation">{{ __('Confirm Password') }}</label>
+                            <input type="password" name="password_confirmation" value="{{old('password_confirmation')}}" class="form-control" placeholder="Enter Your Password Again">
+                            @if($errors->has('password_confirmation'))
+                            <div class="text-danger">{{ $errors->first('password_confirmation') }}</div>
+                            @endif
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Create" class="btn btn-outline-primary w-100 mt-3">
+                        </div>
                     </form>
                 </div>
             </div>
