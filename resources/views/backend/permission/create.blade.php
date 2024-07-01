@@ -14,7 +14,7 @@
                     <form action="{{ route('permission.store') }}" method="POST">
                         @csrf
                         <label class="mt-3" for="name">{{ __('Name') }}</label>
-                        <input type="text" name="name" value="{{old('name')}}" class="form-control" placeholder="Enter Your Role Name">
+                        <input type="text" name="name" value="{{old('name')}}" class="form-control" placeholder="Enter Your Permission Name">
                         @if($errors->has('name'))
                         <div class="text-danger">{{ $errors->first('name') }}</div>
                         @endif

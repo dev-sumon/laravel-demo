@@ -12,6 +12,14 @@ use App\Models\Profession;
 
 class ProfileController extends Controller
 {
+
+    function __construct()
+    {
+         $this->middleware('permission:profile', ['only' => ['profile']]);
+         $this->middleware('permission:profile-update', ['only' => ['update']]);
+    }
+
+
     public function profile(){
         $data['genders'] = Gender::latest()->get();
 

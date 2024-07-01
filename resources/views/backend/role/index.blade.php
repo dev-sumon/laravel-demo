@@ -8,7 +8,9 @@
             <div class="card">
                 <div class="card-header  d-flex justify-content-between align-items-center">
                     <h1 class="float-start">Role List</h1>
+                    @if (auth()->user()->can('role-create'))
                     <a href="{{ route('role.create') }}" class="btn btn-info btn-sm float-end align-items-center px-2 py-2">Add Role</a>
+                    @endif
                 </div>
                 <div class="card-body">
                     @if(session()->has('flash_message'))

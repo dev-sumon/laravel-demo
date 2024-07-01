@@ -1,13 +1,21 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
-use App\Models\Permission;
+use Spatie\Permission\Models\Permission;
 use App\Http\Requests\PermissionRequest;
 
 class PermissionController extends Controller
 {
+
+    function __construct()
+    {
+         $this->middleware('permission:permission-list', ['only' => ['index']]);
+         $this->middleware('permission:permission-create', ['only' => ['create','store']]);
+         $this->middleware('permission:permission-edit', ['only' => ['edit','update']]);
+         $this->middleware('permission:permission-delete', ['only' => ['delete']]);
+    }
+
+
     public function index(){
         $data['permissions'] = Permission::all();
         return view('backend.permission.index', $data);

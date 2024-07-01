@@ -15,7 +15,7 @@
                     <form action="{{ route('permission.update', $permission->id) }}" method="POST">
                         @csrf
                         <label class="mt-3" for="name">{{ __('Name') }}</label>
-                        <input type="text" name="name" value="{{ $permission->name }}" class="form-control" placeholder="Enter Your Role Name">
+                        <input type="text" name="name" value="{{ $permission->name }}" class="form-control" placeholder="Enter Your Permission Name">
                         @if($errors->has('name'))
                         <div class="text-danger">{{ $errors->first('name') }}</div>
                         @endif
