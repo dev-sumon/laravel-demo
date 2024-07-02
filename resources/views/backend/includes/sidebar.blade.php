@@ -1,11 +1,11 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-laugh-wink"></i>
+    <a class="sidebar-brand d-flex align-items-center justify-content-center pt-5 py-5" href="{{ route('dashboard') }}">
+        <div class="sidebar-brand-icon">
+            <img src="{{ asset('backend/img/HR_logo.jpg') }}" alt="{{ __('HR Logo') }}" style="width: 100%; border-radius: 50%;">
         </div>
-        <div class="sidebar-brand-text mx-3">{{ __('HR Management') }}</div>
+        <div class="sidebar-brand-text mx-3" style="font-size: 12px;">{{ __('HR Management') }}</div>
     </a>
 
     <!-- Divider -->
