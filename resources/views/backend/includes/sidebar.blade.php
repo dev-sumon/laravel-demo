@@ -19,11 +19,13 @@
     </li>
 
 
-    <li class="nav-item active">
-        <a class="nav-link" href="{{ route('user.index') }}">
-            <i class="fas fa-users"></i>
-            <span>{{ __('Users') }}</span></a>
+   @if (auth()->user()->can('user-list'))
+   <li class="nav-item active">
+    <a class="nav-link" href="{{ route('user.index') }}">
+        <i class="fas fa-users"></i>
+        <span>{{ __('Users') }}</span></a>
     </li>
+   @endif
 
 
     <li class="nav-item active">
@@ -31,25 +33,33 @@
             <i class="fas fa-user"></i>
             <span>{{ __('Profile') }}</span></a>
     </li>
+    @if(auth()->user()->can('gender-list'))
     <li class="nav-item active">
         <a class="nav-link" href="{{ route('gender.index') }}">
             <i class="fas fa-people-arrows"></i>
             <span>{{ __('Gender') }}</span></a>
     </li>
+    @endif
 
+    @if (auth()->user()->can('profession-list'))
     <li class="nav-item active">
         <a class="nav-link" href="{{ route('profession.index') }}">
             <i class="fas fa-user-graduate"></i>
             <span>{{ __('Profession') }}</span></a>
     </li>
+    @endif
+    @if (auth()->user()->can('role-list'))
     <li class="nav-item active">
         <a class="nav-link" href="{{ route('role.index') }}">
             <i class="fas fa-minus"></i>
             <span>{{ __('Role') }}</span></a>
     </li>
+    @endif
+    @if (auth()->user()->can('permission-list'))
     <li class="nav-item active">
         <a class="nav-link" href="{{ route('permission.index') }}">
             <i class="fas fa-user-lock"></i>
             <span>{{ __('Permission') }}</span></a>
     </li>
+    @endif
 </ul>

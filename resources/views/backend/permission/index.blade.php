@@ -8,7 +8,9 @@
             <div class="card">
                 <div class="card-header  d-flex justify-content-between align-items-center">
                     <h1 class="float-start">Permision List</h1>
+                    @if (auth()->user()->can('permission-create'))
                     <a href="{{ route('permission.create') }}" class="btn btn-info btn-sm float-end align-items-center px-2 py-2">Add Permision</a>
+                    @endif
                 </div>
                 <div class="card-body">
                     @if(session()->has('flash_message'))
@@ -37,8 +39,12 @@
                                     <td>{{ ($permission->created_at == $permission->updated_at) ? "N/A" : date('d-m-Y H:i A', strtotime($permission->updated_at)) }}</td>
                                     <td>
                                         <div class="btn-group" role="group">
+                                            @if (auth()->user()->can('permission-edit'))
                                             <a href="{{ route('permission.edit', $permission->id) }}" class="btn btn-info btn-sm">Edit</a>
+                                            @endif
+                                            @if (auth()->user()->can('permission-delete'))
                                             <a href="{{ route('permission.delete', $permission->id) }}" class="btn btn-danger btn-sm">Delete</a>
+                                            @endif
                                         </div>
                                     </td>
                                 </tr>

@@ -22,6 +22,7 @@
                                 <th>{{ __('SL') }}</th>
                                 <th>{{ __('Name') }}</th>
                                 <th>{{ __('Email') }}</th>
+                                <th>{{ __('Role') }}</th>
                                 <th>{{ __('Created At') }}</th>
                                 <th>{{ __('Updated At') }}</th>
                                 <th>{{ __('Action') }}</th>
@@ -34,6 +35,7 @@
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->email }}</td>
+                                    <td>{{ $user->role->name }}</td>
                                     <td>{{ date('d-m-Y H:i A', strtotime($user->created_at)) }}</td>
                                     <td>{{ ($user->created_at == $user->updated_at) ? "N/A" : date('d-m-Y H:i A', strtotime($user->updated_at)) }}</td>
                                     <td>
