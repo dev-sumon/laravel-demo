@@ -36,18 +36,23 @@ class ShiftController extends Controller
     }
 
     public function edit($id){
+
+
+
         $data['shifts'] = Shift::findOrFail($id);
         return view('backend.shift.edit', $data);
     }
 
     public function update(ShiftRequest $request, $id){
 
-        $shifts = Shift::findOrFail($id);
 
-        $shifts->name = $request->name;
-        $shifts->start_time = $request->start_time;
-        $shifts->end_time = $request->end_time;
-        $shifts->update();
+
+        $shift = Shift::findOrFail($id);
+
+        $shift->name = $request->name;
+        $shift->start_time = $request->start_time;
+        $shift->end_time = $request->end_time;
+        $shift->update();
 
         return redirect()->route('shift.index');
     }
