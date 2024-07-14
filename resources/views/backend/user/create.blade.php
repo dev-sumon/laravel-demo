@@ -6,8 +6,8 @@
         <div class="col-12 my-5">
             <div class="card">
                 <div class="card-header  d-flex justify-content-between align-items-center">
-                    <h1 class="float-start">Add User</h1>
-                    <a href="{{ route('user.index') }}" class="btn btn-info btn-sm float-end">Back</a>
+                    <h1 class="float-start">{{ __('Add User') }}</h1>
+                    <a href="{{ route('user.index') }}" class="btn btn-info btn-sm float-end">{{ __('Back') }}</a>
                 </div>
                 <div class="card-body">
 
@@ -40,6 +40,18 @@
                             @endif
                         </div>
                         <div class="form-group">
+                            <label  class="mt-3" for="gender">{{ __('Gender') }}</label>
+                            <select name="gender" id="gender" class="form-control">
+                                <option value=" " selected hidden>{{ __('Select gender') }}</option>
+                                @foreach ($genders as $gender)
+                                    <option value="{{ $gender->id }}" {{ $gender->id==old('gender') ? 'selected': '' }}>{{ $gender->name}}</option>
+                                @endforeach
+                            </select>
+                            @if($errors->has('gender'))
+                            <div class="text-danger">{{ $errors->first('gender') }}</div>
+                            @endif
+                        </div>
+                        <div class="form-group">
                             <label class="mt-3" for="password">{{ __('Password') }}</label>
                             <input type="password" name="password" value="{{old('password')}}" class="form-control" placeholder="Enter Your Password">
                             @if($errors->has('password'))
@@ -53,8 +65,8 @@
                             <div class="text-danger">{{ $errors->first('password_confirmation') }}</div>
                             @endif
                         </div>
-                        <div class="form-group">
-                            <input type="submit" value="Create" class="btn btn-outline-primary w-100 mt-3">
+                        <div class="submit-button text-right ms-auto my-3">
+                            <button class="btn btn-primary" type="submit">{{ __('Create') }}</button>
                         </div>
                     </form>
                 </div>

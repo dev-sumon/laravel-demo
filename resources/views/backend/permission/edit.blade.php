@@ -8,25 +8,28 @@
         <div class="col-12 my-5">
             <div class="card">
                 <div class="card-header  d-flex justify-content-between align-items-center">
-                    <h1 class="float-start">Edit Role</h1>
-                    <a href="{{ route('permission.index') }}" class="btn btn-info btn-sm float-end">Back</a>
+                    <h1 class="float-start">{{ __('Edit Role') }}</h1>
+                    <a href="{{ route('permission.index') }}" class="btn btn-info btn-sm float-end">{{ __('Back') }}</a>
                 </div>
                 <div class="card-body">
                     <form action="{{ route('permission.update', $permission->id) }}" method="POST">
                         @csrf
-                        <label class="mt-3" for="name">{{ __('Name') }}</label>
-                        <input type="text" name="name" value="{{ $permission->name }}" class="form-control" placeholder="Enter Your Permission Name">
-                        @if($errors->has('name'))
-                        <div class="text-danger">{{ $errors->first('name') }}</div>
-                        @endif
-                        <label class="mt-3" for="prefix">{{ __('Prefix') }}</label>
-                        <input type="text" name="prefix" value="{{ $permission->prefix }}" class="form-control" placeholder="Enter Your Prefix">
-                        @if($errors->has('prefix'))
-                        <div class="text-danger">{{ $errors->first('prefix') }}</div>
-                        @endif
-
+                       <div class="form-group">
+                            <label class="mt-3" for="name">{{ __('Name') }}</label>
+                            <input type="text" name="name" value="{{ $permission->name }}" class="form-control" placeholder="Enter Your Permission Name">
+                            @if($errors->has('name'))
+                            <div class="text-danger">{{ $errors->first('name') }}</div>
+                            @endif
+                       </div>
+                       <div class="form-group">
+                            <label class="mt-3" for="prefix">{{ __('Prefix') }}</label>
+                            <input type="text" name="prefix" value="{{ $permission->prefix }}" class="form-control" placeholder="Enter Your Prefix">
+                            @if($errors->has('prefix'))
+                            <div class="text-danger">{{ $errors->first('prefix') }}</div>
+                            @endif
+                       </div>
                         <div class="submit-button text-right ms-auto mt-3">
-                            <button class="btn btn-primary" type="submit">Update</button>
+                            <button class="btn btn-primary" type="submit">{{ __('Update') }}</button>
                         </div>
                     </form>
                 </div>

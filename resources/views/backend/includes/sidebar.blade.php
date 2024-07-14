@@ -36,7 +36,7 @@
     @if(auth()->user()->can('gender-list'))
     <li class="nav-item active">
         <a class="nav-link" href="{{ route('gender.index') }}">
-            <i class="fas fa-people-arrows"></i>
+            <i class="fas fa-venus-mars"></i>
             <span>{{ __('Gender') }}</span></a>
     </li>
     @endif
@@ -51,7 +51,7 @@
     @if (auth()->user()->can('role-list'))
     <li class="nav-item active">
         <a class="nav-link" href="{{ route('role.index') }}">
-            <i class="fas fa-minus"></i>
+            <i class="fas fa-user-shield"></i>
             <span>{{ __('Role') }}</span></a>
     </li>
     @endif

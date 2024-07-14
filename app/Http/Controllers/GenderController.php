@@ -23,9 +23,8 @@ class GenderController extends Controller
         return view('backend.gender.gender_list',$data);
     }
 
-    public function create()
-    {
-        return view('backend.gender.gender_create');
+    public function create(){
+        return view('backend.gender.gender_create' );
     }
     public function store(GenderRequest $request){
 
