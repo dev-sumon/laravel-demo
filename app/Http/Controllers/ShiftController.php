@@ -22,7 +22,9 @@ class ShiftController extends Controller
         return view('backend.shift.index', $data);
     }
     public function create(){
-        return view('backend.shift.create');
+        $data['shift_groups'] = Shift::orderBy('name')->get()->groupBy('name');
+
+        return view('backend.shift.create', $data);
     }
     public function store(ShiftRequest $request){
 
@@ -36,18 +38,23 @@ class ShiftController extends Controller
     }
 
     public function edit($id){
-        $data['shifts'] = Shift::findOrFail($id);
+
+
+
+        $data['shift'] = Shift::findOrFail($id);
         return view('backend.shift.edit', $data);
     }
 
     public function update(ShiftRequest $request, $id){
 
-        $shifts = Shift::findOrFail($id);
 
-        $shifts->name = $request->name;
-        $shifts->start_time = $request->start_time;
-        $shifts->end_time = $request->end_time;
-        $shifts->update();
+
+        $shift = Shift::findOrFail($id);
+
+        $shift->name = $request->name;
+        $shift->start_time = $request->start_time;
+        $shift->end_time = $request->end_time;
+        $shift->update();
 
         return redirect()->route('shift.index');
     }

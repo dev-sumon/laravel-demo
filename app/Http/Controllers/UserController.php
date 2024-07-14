@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRequest;
 use App\Models\User;
+use App\Models\Gender;
 use Spatie\Permission\Models\Role;
 
 
@@ -25,6 +26,7 @@ class UserController extends Controller
     public function create(){
 
         $data['roles'] = Role::latest()->get();
+        $data['genders'] = Gender::latest()->get();
         return view('backend.user.create', $data);
     }
 
@@ -53,6 +55,7 @@ class UserController extends Controller
     public function edit($id){
         $data['user'] = User::findOrFail($id);
         $data['roles'] = Role::latest()->get();
+        $data['genders'] = Gender::latest()->get();
         return view('backend.user.edit', $data);
     }
 
@@ -63,6 +66,7 @@ class UserController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->role_id = $request->role;
+        $user->gender_id = $request->gender;
         if($request->password){
             $user->password = $request->password;
         }

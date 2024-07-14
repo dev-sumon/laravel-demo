@@ -8,6 +8,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 use Spatie\Permission\Models\Role;
+Use App\Models\Gender;
+Use App\Models\Shift;
 
 class User extends Authenticatable
 {
@@ -58,5 +60,8 @@ class User extends Authenticatable
 
     public function role(){
         return $this->belongsTo(Role::class,'role_id');
+    }
+    public function shift(){
+        return $this->belongsTo(Shift::class,'shift_id');
     }
 }

@@ -7,9 +7,9 @@
         <div class="col-12 my-5">
             <div class="card">
                 <div class="card-header  d-flex justify-content-between align-items-center">
-                    <h1 class="float-start">Role List</h1>
+                    <h1 class="float-start">{{ __('Role List') }}</h1>
                     @if (auth()->user()->can('role-create'))
-                    <a href="{{ route('role.create') }}" class="btn btn-info btn-sm float-end align-items-center px-2 py-2">Add Role</a>
+                    <a href="{{ route('role.create') }}" class="btn btn-info btn-sm float-end align-items-center px-2 py-2">{{ __('Add Role') }}</a>
                     @endif
                 </div>
                 <div class="card-body">
@@ -39,8 +39,8 @@
                                     <td>{{ ($role->created_at == $role->updated_at) ? "N/A" : date('d-m-Y H:i A', strtotime($role->updated_at)) }}</td>
                                     <td>
                                         <div class="btn-group" role="group">
-                                            <a href="{{ route('role.edit', $role->id) }}" class="btn btn-info btn-sm">Edit</a>
-                                            <a href="{{ route('role.delete', $role->id) }}" class="btn btn-danger btn-sm">Delete</a>
+                                            <a href="{{ route('role.edit', $role->id) }}" class="btn btn-info btn-sm">{{ __('Edit') }}</a>
+                                            <a href="{{ route('role.delete', $role->id) }}" class="btn btn-danger btn-sm">{{ __('Delete') }}</a>
                                         </div>
                                     </td>
                                 </tr>
