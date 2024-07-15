@@ -8,7 +8,9 @@
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h1 class="float-start">{{ __('Profession List') }}</h1>
-                    <a href="{{ route('profession.create') }}" class="btn btn-info btn-sm float-end align-items-center px-2 py-2">{{ __('Add Profession') }}</a>
+                    @if (auth()->user()->can('profession-create'))
+                        <a href="{{ route('profession.create') }}" class="btn btn-info btn-sm float-end align-items-center px-2 py-2">{{ __('Add Profession') }}</a>
+                    @endif
                 </div>
                 <div class="card-body">
                     @if(session()->has('flash_message'))
@@ -35,8 +37,12 @@
                                     <td>{{ ($profession->created_at == $profession->updated_at) ? "N/A" : date('d-m-Y H:i A', strtotime($profession->updated_at)) }}</td>
                                     <td>
                                         <div class="btn-group" role="group">
-                                            <a href="{{ route('profession.edit', $profession->id)}}" class="btn btn-info btn-sm">{{ __('Edit') }}</a>
-                                            <a href="{{ route('profession.delete', $profession->id)}}" class="btn btn-danger btn-sm">{{ __('Delete') }}</a>
+                                            @if (auth()->user()->can('profession-create'))
+                                                <a href="{{ route('profession.edit', $profession->id)}}" class="btn btn-info btn-sm">{{ __('Edit') }}</a>
+                                            @endif
+                                            @if (auth()->user()->can('profession-delete'))
+                                                <a href="{{ route('profession.delete', $profession->id)}}" class="btn btn-danger btn-sm">{{ __('Delete') }}</a>
+                                            @endif
                                         </div>
                                     </td>
                                 </tr>

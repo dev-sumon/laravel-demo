@@ -8,7 +8,9 @@
             <div class="card">
                 <div class="card-header  d-flex justify-content-between align-items-center">
                     <h1 class="float-start">{{ __('Gender List') }}</h1>
+                    @if (auth()->user()->can('gender-create'))
                     <a href="{{ route('gender.create') }}" class="btn btn-info btn-sm float-end align-items-center px-2 py-2">{{ __('Add Gender') }}</a>
+                    @endif
                 </div>
                 <div class="card-body">
                     @if(session()->has('flash_message'))
@@ -35,9 +37,12 @@
                                     <td>{{ ($gender->created_at == $gender->updated_at) ? "N/A" : date('d-m-Y H:i A', strtotime($gender->updated_at)) }}</td>
                                     <td>
                                         <div class="btn-group" role="group">
+                                            @if (auth()->user()->can('gender-edit'))
                                             <a href="{{ route('gender.edit', $gender->id) }}" class="btn btn-info btn-sm">{{ __('Edit') }}</a>
+                                            @endif
+                                            @if (auth()->user()->can('gender-delete'))
                                             <a href="{{ route('gender.delete', $gender->id) }}" class="btn btn-danger btn-sm">{{ __('Delete') }}</a>
-
+                                            @endif
                                         </div>
                                     </td>
                                 </tr>
