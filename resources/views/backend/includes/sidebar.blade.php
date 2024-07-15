@@ -62,9 +62,11 @@
             <span>{{ __('Permission') }}</span></a>
     </li>
     @endif
+    @if (auth()->user()->can('shift-list'))
     <li class="nav-item active">
         <a class="nav-link" href="{{ route('shift.index') }}">
             <i class="fas fa-hourglass-half"></i>
             <span>{{ __('Shift') }}</span></a>
     </li>
+    @endif
 </ul>

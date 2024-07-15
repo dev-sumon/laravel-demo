@@ -39,8 +39,12 @@
                                     <td>{{ ($role->created_at == $role->updated_at) ? "N/A" : date('d-m-Y H:i A', strtotime($role->updated_at)) }}</td>
                                     <td>
                                         <div class="btn-group" role="group">
-                                            <a href="{{ route('role.edit', $role->id) }}" class="btn btn-info btn-sm">{{ __('Edit') }}</a>
-                                            <a href="{{ route('role.delete', $role->id) }}" class="btn btn-danger btn-sm">{{ __('Delete') }}</a>
+                                            @if (auth()->user()->can('role-edit'))
+                                                <a href="{{ route('role.edit', $role->id) }}" class="btn btn-info btn-sm">{{ __('Edit') }}</a>
+                                            @endif
+                                            @if (auth()->user()->can('role-delete'))
+                                                <a href="{{ route('role.delete', $role->id) }}" class="btn btn-danger btn-sm">{{ __('Delete') }}</a>
+                                            @endif
                                         </div>
                                     </td>
                                 </tr>
